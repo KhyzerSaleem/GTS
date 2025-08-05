@@ -37,9 +37,9 @@ export default function Main() {
                 Get Started
               </button>
               </Link>
-              <Link href='/Services'>
+              <Link href='/Contact'>
               <button className="bg-green-900 text-white py-3 px-8 rounded-full font-medium hover:brightness-110 transition-all">
-                Learn More
+                Get A Quote
               </button>
               </Link>
             </div>

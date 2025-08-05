@@ -6,7 +6,8 @@ import S3 from '@/Components/Images/Services/3.jpg'
 import S4 from '@/Components/Images/Services/4.jpg'
 import ScrollToTop from '@/Components/ScrollToTop'
 import Link from 'next/link'
-
+import { metadata } from "./metadata";
+export { metadata };
 
 export default function Services() {
     // Service data with URLs for each service page

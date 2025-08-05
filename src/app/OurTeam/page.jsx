@@ -9,6 +9,8 @@ import TM2 from '@/Components/Images/Our Team/TeamMembers/2.jpeg';
 import TM3 from '@/Components/Images/Our Team/TeamMembers/3.jpeg';
 import ScrollToTop from '@/Components/ScrollToTop';
 import Link from 'next/link';
+import { metadata } from "./metadata";
+export { metadata };
 
 const teamMembers = [
   { 

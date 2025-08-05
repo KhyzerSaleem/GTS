@@ -1,4 +1,3 @@
-// pages/blog.js
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +8,8 @@ import J4 from '@/Components/Images/Journal/4.jpg';
 import J5 from '@/Components/Images/Journal/5.jpg';
 import J6 from '@/Components/Images/Journal/6.jpg';
 import ScrollToTop from '@/Components/ScrollToTop';
+import { metadata } from "./metadata";
+export { metadata };
 
 export default function JOURNAL() {
   const blogPosts = [

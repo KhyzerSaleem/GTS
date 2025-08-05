@@ -1,137 +1,109 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Function to check if the current path matches the link
   const isActive = (path) => pathname === path;
 
   return (
     <header className="w-full z-50 bg-[#004040] text-white relative">
-      <div className="container mx-auto flex justify-between items-center py-2 px-4 relative">
-        {/* <div className="">
+      <div className="container mx-auto flex items-center py-2 px-4 relative">
+        {/* Logo */}
+        <div className="lg:w-1/5 w-full">
           <Link href="/">
-            <div className="text-white font-bold text-2xl">
-              <span className="text-white">Ever</span>
-              <span className="text-green-400">Green</span>
-            </div>
-          </Link>
-        </div> */}
-         <div className="">
-          <Link href="/">
-            <Image src='/assets/logo.png' alt='Logo' height={300} width={300} />
+            <Image src="/assets/logo.png" alt="Logo" height={300} width={300} />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:block">
-          <ul className="flex text-white space-x-8">
+        <nav className="hidden lg:flex flex-grow justify-center">
+          <ul className="flex text-white space-x-8 mx-auto">
             <li className="py-2">
-              <Link 
-                href="/" 
-                className={`
-                  hover:text-green-400 
-                  transition-all 
-                  duration-300 
-                  ${isActive('/') ? 'text-green-400' : ''}
-                `}
+              <Link
+                href="/"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/") ? "text-green-400" : ""}`}
               >
                 Home
               </Link>
             </li>
             <li className="py-2">
-              <Link 
-                href="/About" 
-                className={`
-                  hover:text-green-400 
-                  transition-all 
-                  duration-300 
-                  ${isActive('/About') ? 'text-green-400' : ''}
-                `}
+              <Link
+                href="/About"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/About") ? "text-green-400" : ""}`}
               >
                 About Us
               </Link>
             </li>
             <li className="py-2">
-              <Link 
-                href="/Services" 
-                className={`
-                  hover:text-green-400 
-                  transition-all 
-                  duration-300 
-                  ${isActive('/Services') ? 'text-green-400' : ''}
-                `}
+              <Link
+                href="/Services"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/Services") ? "text-green-400" : ""}`}
               >
-               Services
+                Services
               </Link>
             </li>
             <li className="py-2">
-              <Link 
-                href="/blog" 
-                className={`
-                  hover:text-green-400 
-                  transition-all 
-                  duration-300 
-                  ${isActive('/Blog') ? 'text-green-400' : ''}
-                `}
+              <Link
+                href="/Quote"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/Quote") ? "text-green-400" : ""}`}
+              >
+                Get a Quote
+              </Link>
+            </li>
+            <li className="py-2">
+              <Link
+                href="/blog"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/Blog") ? "text-green-400" : ""}`}
               >
                 Blog
               </Link>
             </li>
-            <li className="py-2 relative group">
-              <Link 
-                href="/Contact" 
-                className={`
-                  hover:text-green-400 
-                  transition-all 
-                  duration-300 
-                  ${isActive('/Pages') ? 'text-green-400' : ''}
-                `}
+            <li className="py-2">
+              <Link
+                href="/Contact"
+                className={`hover:text-green-400 transition-all duration-300 ${isActive("/Contact") ? "text-green-400" : ""}`}
               >
                 Contact
-                {/* Pages <span className="inline-block ml-1">▼</span> */}
               </Link>
             </li>
           </ul>
         </nav>
 
-      
+        {/* Phone Number */}
+        <div className="hidden lg:flex text-[15px] items-center lg:w-1/5 justify-end">
+          <span className="mr-3">
+            <FontAwesomeIcon icon={faPhone} className="h-5 w-5 text-green-400" />
+          </span>
+          <a href="tel:+61449900001">
+            <span>(+61) 449-90-0001</span>
+          </a>
+        </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="lg:hidden text-2xl z-60 relative"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? '✕' : '☰'}
-        </button>
+        {/* Mobile Hamburger */}
+        <div className="flex justify-end flex-1 lg:hidden">
+          <button
+            className="text-2xl z-30"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         <div
-          className={`
-            fixed 
-            z-50
-            transition-all 
-            duration-300
-            top-0 
-            right-0
-            h-full 
-            w-64
-            bg-[#004040]
-            shadow-lg
-            lg:hidden
-            ${menuOpen ? "translate-x-0" : "translate-x-full"}
-          `}
+          className={`fixed z-50 transition-all duration-300 top-0 right-0 h-full w-64 bg-[#004040] shadow-lg lg:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex justify-end p-4">
-            <button 
-              className="text-2xl text-white" 
+            <button
+              className="text-2xl text-white"
               onClick={() => setMenuOpen(false)}
             >
               ✕
@@ -141,35 +113,35 @@ export default function Header() {
             {[
               { href: "/", label: "Home" },
               { href: "/About", label: "About Us" },
-              { href: "/Services", label: " Services" },
+              { href: "/Services", label: "Services" },
+              { href: "/Quote", label: "Get a Quote" },
               { href: "/blog", label: "Blog" },
-              { href: "/Contact", label: "Contact"},
+              { href: "/Contact", label: "Contact" },
             ].map((item) => (
-              <li 
-                key={item.href}
-                className="border-b border-gray-700 pb-2"
-              >
-                <Link 
-                  href={item.href} 
-                  className={`
-                    block
-                    transition-all 
-                    duration-300 
-                    ${isActive(item.href) ? 'text-green-400' : 'hover:text-green-400'}
-                  `}
+              <li key={item.href} className="border-b border-gray-700 pb-2">
+                <Link
+                  href={item.href}
+                  className={`block transition-all duration-300 ${isActive(item.href) ? "text-green-400" : "hover:text-green-400"}`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-        
+            <li className="flex items-center text-sm pt-4">
+              <span className="mr-3">
+                <FontAwesomeIcon icon={faPhone} className="h-5 w-5 text-green-400" />
+              </span>
+              <a href="tel:+61449900001">
+                <span>(+61) 449-90-0001</span>
+              </a>
+            </li>
           </ul>
         </div>
-        
-        {/* Overlay when mobile menu is open */}
+
+        {/* Overlay */}
         {menuOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
             onClick={() => setMenuOpen(false)}
           />

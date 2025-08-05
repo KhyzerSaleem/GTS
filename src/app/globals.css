@@ -1,12 +1,9 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-html, body {
- 
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,10 +14,10 @@ html, body {
 
 a {
   text-decoration: none;
- 
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -37,6 +34,16 @@ button {
   background: none;
 }
 
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 
-
-
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
